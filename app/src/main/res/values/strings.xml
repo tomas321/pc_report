@@ -1,0 +1,87 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">PCreport</string>
+    <!-- Strings related to home -->
+    <string name="home_toolbar">Home</string>
+    <string name="action_logout">Log out</string>
+    <string name="action_home">refresh</string>
+
+    <!-- Strings related to login -->
+    <string name="login_password">password</string>
+    <string name="login_username">username</string>
+    <string name="Login">Login</string>
+    <string name="login">login</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+
+    <!-- Strings related to delete popup -->
+    <string name="Delete">Delete?</string>
+    <string name="delete_msg">This will delete the report from the database</string>
+    <string name="DELETE">DELETE</string>
+    <string name="cancel">cancel</string>
+
+    <!-- Strings related to connection error popup -->
+    <string name="connection_error">Connection error</string>
+    <string name="connection_error_msg">Server inaccessible. Check your network configuration.</string>
+    <string name="error_ok">OK</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <!-- Strings related to incomplete popup -->
+    <string name="Incomplete">Incomplete</string>
+    <string name="incomplete_msg">Some fields are incomplete. Please complete all fields.</string>
+    <string name="incomplete_ok">OK</string>
+
+    <!-- Strings related to discard changes popup -->
+    <string name="Discard">Discard report?</string>
+    <string name="discard_msg">This will discard the new report. Would you like to continue?</string>
+    <string name="discard_yes">YES</string>
+    <string name="discard_no">NO</string>
+
+    <!-- Strings related to detail -->
+    <string name="Detail">Detail</string>
+    <string name="detail_os">Operating system</string>
+    <string name="detail_memory">RAM in MB</string>
+    <string name="detail_uptime">Up time in hours</string>
+    <string name="detail_owner">Owner</string>
+    <string name="detail_department">Department</string>
+    <string name="detail_occurred_at">Occurred at</string>
+    <string name="detail_spec">Specification</string>
+
+    <!-- Strings related to adding new report  -->
+    <string name="New_report">New report</string>
+    <string name="report_state">report state</string>
+    <string name="critical_state">critical</string>
+    <string name="problem_state">problem</string>
+    <string name="specification">specification</string>
+    <string name="spec_report_title">report title</string>
+    <string name="computer">computer</string>
+    <string name="comp_os_distro">operating system distribution</string>
+    <string name="comp_memory">memory in MB</string>
+    <string name="comp_uptime">up-time in hours</string>
+    <string name="owner">owner</string>
+    <string name="own_name">name</string>
+    <string name="own_department">department</string>
+    <string name="screenshot">screenshot</string>
+    <string name="screenshot_path_label">image: </string>
+    <string name="new_screenshot_path">no file chosen</string>
+    <string name="new_report_button">Add</string>
+
+    <!-- Strings related to editing a report -->
+    <string name="Edit">Edit</string>
+    <string name="edit_report_state">Report state</string>
+    <string name="edit_report">Report</string>
+    <string name="edit_spec">Specification</string>
+    <string name="edit_os">Operating system</string>
+    <string name="edit_memory">Memory in MB</string>
+    <string name="edit_uptime">Up-time</string>
+    <string name="edit_owner">Owner</string>
+    <string name="edit_department">Department</string>
+    <string name="edit_occurred_at">Occurred at</string>
+    <string name="date_format">yyyy-MM-dd hh:mm:ss</string>
+    <string name="edit_screen">New screenshot</string>
+    <string name="edit_screen_button">Choose image</string>
+    <string name="edit_screen_path">No image chosen</string>
+    <string name="action_change">Change</string>
+    <string name="action_cancel">Cancel</string>
+
+
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_edges"
+    tools:context=".ConnectionErrorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/discard_label"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:text="@string/Discard"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/discard_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:text="@string/discard_msg"
+            android:textColor="@android:color/black"
+            android:layout_gravity="start"
+            android:textSize="15sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/discard_yes_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="0dp"
+                android:text="@string/discard_yes"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@android:color/transparent" />
+
+            <Button
+                android:id="@+id/discard_no_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="0dp"
+                android:text="@string/discard_no"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

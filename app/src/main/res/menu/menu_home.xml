@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mtaa.tomas.pcreport.HomeActivity">
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="300"
+        android:title="@string/action_logout"
+        android:icon="@drawable/ic_logout_white_24dp"
+        app:showAsAction="ifRoom" />
+</menu>
