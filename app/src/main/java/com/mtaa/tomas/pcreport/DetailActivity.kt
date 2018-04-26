@@ -22,6 +22,8 @@ import com.android.volley.toolbox.Volley
 
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.json.JSONObject
+import java.io.File
+import java.io.FileNotFoundException
 
 class DetailActivity : AppCompatActivity() {
     lateinit var mRequestQueue: RequestQueue
@@ -34,7 +36,8 @@ class DetailActivity : AppCompatActivity() {
         val reportJson = JSONObject(reportStr)
 
         reportDetail = Report.fromJson(reportJson)
-        setComponents(reportDetail)
+        if (setComponents(reportDetail) == 1)
+            println("DEBUG: file not found -> continue anyway")
 
         mRequestQueue = Volley.newRequestQueue(this) // 'this' is Context
 
@@ -44,9 +47,20 @@ class DetailActivity : AppCompatActivity() {
 
         val screen: ImageView = findViewById(R.id.detail_screen)
         screen.setOnClickListener { view ->
-            val imageIntent = Intent(this, PreviewActivity::class.java)
-            imageIntent.putExtra("path", reportDetail.screen)
-            startActivity(imageIntent)
+            if (File(reportDetail.screen).exists()) {
+                val imageIntent = Intent(this, PreviewActivity::class.java)
+                imageIntent.putExtra("path", reportDetail.screen)
+                startActivity(imageIntent)
+            } else {
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("Current image does not exist. Edit this report to change it.")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, id ->
+                            dialog.cancel()
+                        })
+                val alert = builder.create()
+                alert.show()
+            }
         }
     }
 
@@ -102,7 +116,8 @@ class DetailActivity : AppCompatActivity() {
         mRequestQueue.add(json)
     }
 
-    fun setComponents(report: Report) {
+    fun setComponents(report: Report): Int {
+        var ret = 0
         findViewById<TextView>(R.id.detail_report).text = report.report
         findViewById<TextView>(R.id.detail_os).text = report.operatingSystem
         findViewById<TextView>(R.id.detail_memory).text = report.memory.toString()
@@ -111,14 +126,19 @@ class DetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.detail_department).text = report.department
         findViewById<TextView>(R.id.detail_occurredAt).text = report.occurredAt
         findViewById<TextView>(R.id.detail_specification).text = report.specification
-        val bitmapImage = BitmapFactory.decodeFile(report.screen)
-        val detailImage = findViewById<ImageView>(R.id.detail_screen)
-        if (bitmapImage.height > 2048 || bitmapImage.width > 2048) {
-            val scale = (bitmapImage.height * (2048.0 / bitmapImage.width)).toInt()
-            val bitmapImageScaled = Bitmap.createScaledBitmap(bitmapImage, 2048, scale, true)
-            detailImage.setImageBitmap(bitmapImageScaled)
-        } else {
-            detailImage.setImageBitmap(bitmapImage)
+        if (!File(report.screen).exists()) {
+            ret = 1
+        }
+        else {
+            val bitmapImage = BitmapFactory.decodeFile(report.screen)
+            val detailImage = findViewById<ImageView>(R.id.detail_screen)
+            if (bitmapImage.height > 2048 || bitmapImage.width > 2048) {
+                val scale = (bitmapImage.height * (2048.0 / bitmapImage.width)).toInt()
+                val bitmapImageScaled = Bitmap.createScaledBitmap(bitmapImage, 2048, scale, true)
+                detailImage.setImageBitmap(bitmapImageScaled)
+            } else {
+                detailImage.setImageBitmap(bitmapImage)
+            }
         }
 
 
@@ -144,6 +164,7 @@ class DetailActivity : AppCompatActivity() {
             }
 
         }
+        return ret
     }
 
 }
